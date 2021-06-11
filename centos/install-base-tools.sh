@@ -13,5 +13,8 @@ yum update -y && \
         ipset \
         open-vm-tools \
         bash-completion \
-        unzip
+        nfs-common \
+        unzip \
+        g++ \
+        nethogs
 
