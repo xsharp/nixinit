@@ -48,7 +48,7 @@ install -Dm755 "${NAME}s" "${BINARYPATH}"
 
 echo Installing $NAME server config to $CONFIGPATH...
 if ! [[ -f "$CONFIGPATH" ]] || prompt "The server config already exists in $CONFIGPATH, overwrite?"; then
-    install -Dm644 frps_full.ini "$CONFIGPATH"
+    install -Dm644 frps.ini "$CONFIGPATH"
 else
     echo Skipping installing $NAME server config...
 fi
@@ -58,18 +58,17 @@ if [[ -d "$SYSTEMDPREFIX" ]]; then
     if ! [[ -f "$SYSTEMDPATH" ]] || prompt "The systemd service already exists in $SYSTEMDPATH, overwrite?"; then
         cat > "$SYSTEMDPATH" << EOF
 [Unit]
-Description=${NAME}s
-Documentation=
+Description=Frp Server Service
 After=network.target network-online.target nss-lookup.target
 
 [Service]
 Type=simple
-StandardError=journal
-ExecStart="$BINARYPATH" -c "$CONFIGPATH"
-ExecReload=/bin/kill -HUP \$MAINPID
-LimitNOFILE=51200
+User=nobody
+AmbientCapabilities=CAP_NET_BIND_SERVICE
 Restart=on-failure
 RestartSec=1s
+ExecStart="$BINARYPATH" -c "$CONFIGPATH"
+LimitNOFILE=1048576
 
 [Install]
 WantedBy=multi-user.target
