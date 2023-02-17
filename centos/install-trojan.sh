@@ -21,8 +21,9 @@ setup_color() {
 
 base_install() {
   apt-get update -y \
-  && apt-get install -y openssl sed \
-  && mkdir -p /etc/trojan \
+  && apt-get install -y openssl sed
+
+  mkdir -p /etc/trojan \
   && openssl req -newkey rsa:4096 \
     -x509 \
     -sha256 \

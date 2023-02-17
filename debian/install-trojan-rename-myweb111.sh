@@ -22,7 +22,7 @@ setup_color() {
 base_install() {
   apt-get update -y \
   && apt-get install -y sed
-  mkdir -p /etc/trojan
+  mkdir -p /etc/myweb111
 }
 
 valid_port(){
@@ -89,7 +89,7 @@ setup_port_password(){
 }
 
 setup_config_file() {
-  local config_file_path="/etc/trojan/config.json"
+  local config_file_path="/etc/myweb111/config.json"
 
   cat > ${config_file_path} <<EOF
 {
@@ -131,17 +131,17 @@ setup_config_file() {
         "enabled": false,
         "server_addr": "127.0.0.1",
         "server_port": 3306,
-        "database": "trojan",
-        "username": "trojan",
+        "database": "myweb111",
+        "username": "myweb111",
         "password": ""
     }
 }
 EOF
   sed -i "s/HAXQER_REPLACE_PORT/${PORT}/g" "${config_file_path}"
   sed -i "s/HAXQER_REPLACE_PASSWORD/${PASSWORD}/g" "${config_file_path}"
-  docker stop trojan >/dev/null 2>&1
-  docker rm trojan >/dev/null 2>&1
-  docker run -d -p "${PORT}":"${PORT}" --name trojan --restart=always -v /etc/trojan:/etc/myweb111 haxqer/myweb111
+  docker stop myweb111 >/dev/null 2>&1
+  docker rm myweb111 >/dev/null 2>&1
+  docker run -d -p "${PORT}":"${PORT}" --name myweb111 --restart=always -v /etc/myweb111:/etc/myweb111 haxqer/myweb111
 }
 
 main(){

@@ -3,6 +3,7 @@
 apt update -y && \
     apt install -y \
         htop \
+        build-essential \
         net-tools \
         dnsutils \
         sysstat \
@@ -24,9 +25,20 @@ apt update -y && \
         sudo \
         nethogs \
         unzip \
-        polipo \
+        psmisc \
         proxychains \
-        screen
+        screen \
+        lvm2 \
+        socat \
+        ebtables \
+        rsync \
+        etherwake \
+        nmap \
+        nload \
+        iftop \
+        bmon \
+        iperf3 \
+        haproxy
 
 
 
