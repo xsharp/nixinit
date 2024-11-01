@@ -19,7 +19,6 @@ apt update -y && \
         ipset \
         jq \
         apache2-utils \
-        open-vm-tools \
         bash-completion \
         openssh-server \
         sudo \
@@ -38,9 +37,12 @@ apt update -y && \
         iftop \
         bmon \
         iperf3 \
-        haproxy \
         tmux \
+        gzip \
+        wget \
         xclip
 
-
+        # qemu-guest-agent \  
+        # open-vm-tools \
+        # haproxy \
 
