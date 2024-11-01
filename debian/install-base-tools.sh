@@ -1,48 +1,47 @@
+/Users/xsharp/Workspace/Testing/nixinit/debian/install-base-tools.sh
 #!/bin/bash
 
 apt update -y && \
     apt install -y \
-        htop \
-        build-essential \
-        net-tools \
-        dnsutils \
-        sysstat \
-        dstat \
-        git \
-        tree \
-        zsh \
-        htop \
-        curl \
-        vim \
-        conntrack \
-        ipvsadm \
-        ipset \
-        jq \
         apache2-utils \
         bash-completion \
-        openssh-server \
-        sudo \
+        bmon \
+        build-essential \
+        conntrack \
+        curl \
+        dnsutils \
+        dstat \
+        ebtables \
+        etherwake \
+        git \
+        gzip \
+        htop \
+        iftop \
+        iperf3 \
+        ipset \
+        ipvsadm \
+        jq \
+        lvm2 \
+        net-tools \
         nethogs \
-        unzip \
+        nload \
+        nmap \
+        openssh-server \
         psmisc \
         proxychains \
-        screen \
-        lvm2 \
-        socat \
-        ebtables \
         rsync \
-        etherwake \
-        nmap \
-        nload \
-        iftop \
-        bmon \
-        iperf3 \
+        screen \
+        socat \
+        sudo \
+        sysstat \
         tmux \
-        gzip \
+        tree \
+        unzip \
+        vim \
         wget \
-        xclip
+        xclip \
+        zsh
 
-        # qemu-guest-agent \  
+        # qemu-guest-agent \
         # open-vm-tools \
         # haproxy \
-
